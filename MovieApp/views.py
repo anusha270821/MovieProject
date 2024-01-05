@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from MovieApp.forms import MoviesForm
 from MovieApp.models import Movies
+from django.http import HttpResponse
 
 #Create your views here.
 def index_view(request):
@@ -23,3 +24,6 @@ def add_movie_view(request):
 def list_movie_view(request):
     movies_list=Movies.objects.all().order_by('-rating') #(-)desc-order
     return render(request,'MovieApp/listmovie.html',{'movies_list':movies_list})
+
+def f1(request):
+    return HttpResponse('Hello World');
